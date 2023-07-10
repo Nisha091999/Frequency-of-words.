@@ -1,0 +1,21 @@
+class WordCounter:
+    def count_words(self, sentence):
+        word_count = {}
+        for word in sentence.split():
+            word_count[word] = word_count.get(word, 0) + 1
+        return word_count
+
+    def sort_dict(self, word_count):
+        sorted_word_count = sorted(word_count.items(), key=lambda x: (x[1], x[0]))
+        return sorted_word_count
+
+    def run(self):
+        sentence = input("Enter a sentence: ")
+        word_count = self.count_words(sentence)
+        sorted_word_count = self.sort_dict(word_count)
+        for word, count in sorted_word_count:
+            print(f"{word}: {count}")
+
+
+counter = WordCounter()
+counter.run()
