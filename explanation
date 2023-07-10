@@ -1,0 +1,46 @@
+class WordCounter: - This line defines a class named WordCounter.
+
+def count_words(self, sentence): - This line defines a method within the WordCounter class called count_words. 
+It takes two parameters: self (which refers to the instance of the class) and sentence (which is the input string to count the words from).
+
+word_count = {} - This line initializes an empty dictionary called word_count. 
+This dictionary will store the count of each word in the sentence.
+
+for word in sentence.split(): - This line starts a for loop that iterates over each word in the sentence string. 
+The split() method is used to split the string into a list of words based on whitespace.
+
+word_count[word] = word_count.get(word, 0) + 1 - This line increments the count of the current word in the word_count dictionary. 
+If the word doesn't exist in the dictionary, the get() method returns a default value of 0, and 1 is added to it.
+
+return word_count - This line returns the word_count dictionary, which contains the count of each word in the sentence.
+
+def sort_dict(self, word_count): - This line defines another method within the WordCounter class called sort_dict. 
+It takes two parameters: self and word_count, which is the dictionary of word counts.
+
+sorted_word_count = sorted(word_count.items(), key=lambda x: (x[1], x[0])) - 
+This line sorts the word_count dictionary based on the values (word counts) in ascending order. 
+The items() method is used to convert the dictionary into a list of key-value pairs, and 
+the sorted() function sorts this list using a lambda function as the key. The lambda function specifies that 
+the sort should first consider the second element of each pair (the count) and then the first element (the word) if the counts are equal.
+
+return sorted_word_count - This line returns the sorted list of word-count pairs.
+
+def run(self): - This line defines another method within the WordCounter class called run. 
+It takes one parameter: self.
+
+sentence = input("Enter a sentence: ") - This line prompts the user to enter a sentence and stores the input in the sentence variable.
+
+word_count = self.count_words(sentence) - This line calls the count_words method of the current WordCounter instance (self) and 
+passes the sentence variable as an argument. It assigns the returned word_count dictionary to the word_count variable.
+
+sorted_word_count = self.sort_dict(word_count) - This line calls the sort_dict method of the current WordCounter instance (self) and 
+passes the word_count variable as an argument. It assigns the returned sorted list of word-count pairs to the sorted_word_count variable.
+
+for word, count in sorted_word_count: - This line starts a for loop that iterates over each word-count pair in the sorted_word_count list.
+
+print(f"{word}: {count}") - This line prints the current word and its corresponding count in the format "word: count".
+
+counter = WordCounter() - This line creates an instance of the WordCounter class and assigns it to the counter variable.
+
+counter.run() - This line calls the run method of the WordCounter instance stored in the counter variable, 
+executing the main logic of the program.
